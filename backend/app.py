@@ -57,24 +57,24 @@ def register():
         "email": email,
         "tree": FamilyTree().to_dict()
     }
-    
+
     trees_collection.insert_one(new_user)
     return jsonify({"msg": "User registered successfully"}), 201
 
 @app.route('/login', methods=['POST'])
 def login():
-    data = request.get_json()
+        data = request.get_json()
     username = data.get('username')
     password = data.get('password')
-    
-    if not username or not password:
+        
+        if not username or not password:
         return jsonify({"msg": "Username and password required"}), 400
     
     user = trees_collection.find_one({"username": username, "password": password})
     if not user:
         return jsonify({"msg": "Invalid credentials"}), 401
     
-    access_token = create_access_token(identity=username)
+        access_token = create_access_token(identity=username)
     
     tree = FamilyTree()
     tree.from_dict(user.get('tree', {}))

@@ -528,7 +528,7 @@ class FamilyTree:
             elif down_count > 2:
                 return f"{'great-' * (down_count - 2)}grandson" if person2.gender == "M" else f"{'great-' * (down_count - 2)}granddaughter"
             else:
-                return "distant relative"
+            return "distant relative"
         
         return "relative"
     
@@ -567,7 +567,7 @@ class FamilyTree:
     def _describe_relationship_path(self, mid1: str, mid2: str, path: List[Tuple[str, str, str]]) -> str:
         """Create a human-readable description of the relationship path."""
         if not path:
-            return None
+        return None
             
         person1 = self.persons[mid1]
         person2 = self.persons[mid2]

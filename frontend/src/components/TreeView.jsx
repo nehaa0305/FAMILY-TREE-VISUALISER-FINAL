@@ -63,7 +63,7 @@ function TreeView() {
         }
       });
     });
-    
+
     const singles = Object.values(memberMap).filter(m => !m._isChild && m.spouses.length === 0);
     
     if (couples.length === 1 && singles.length === 0) {
@@ -120,7 +120,7 @@ function TreeView() {
     const offsetX = width / 2 - (Math.max(...nodes.map(n => n.x)) + minX) / 2;
     const offsetY = 60 - minY;
     const svgLinks = links.map((link, i) => (
-      <line
+              <line
         key={i}
         x1={link.source.x + offsetX}
         y1={link.source.y + offsetY + 40}
@@ -145,19 +145,19 @@ function TreeView() {
             <text x={cx2} y={cy - 5} textAnchor="middle" fontSize={14} fontWeight="bold" fill="#fff">{p2.name}</text>
             <text x={cx2} y={cy + 15} textAnchor="middle" fontSize={12} fill="#fff">{p2.gender}, {p2.age}</text>
             <line x1={cx1 + 50} y1={cy} x2={cx2 - 50} y2={cy} stroke="#E91E63" strokeWidth={4} />
-          </g>
-        );
+            </g>
+          );
       } else if (node.data.isPerson) {
         const p = node.data.person;
         const cx = node.x + offsetX;
         const cy = node.y + offsetY;
-        return (
+          return (
           <g key={i}>
             <rect x={cx - 50} y={cy - 30} width={100} height={60} rx={16} fill={p.gender === 'M' ? '#2196F3' : p.gender === 'F' ? '#E91E63' : '#9C27B0'} stroke="#333" strokeWidth={2} />
             <text x={cx} y={cy - 5} textAnchor="middle" fontSize={14} fontWeight="bold" fill="#fff">{p.name}</text>
             <text x={cx} y={cy + 15} textAnchor="middle" fontSize={12} fill="#fff">{p.gender}, {p.age}</text>
-          </g>
-        );
+            </g>
+          );
       } else {
         const cx = node.x + offsetX;
         const cy = node.y + offsetY;
