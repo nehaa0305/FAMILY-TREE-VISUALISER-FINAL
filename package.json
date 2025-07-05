@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "d3-flextree": "^2.1.2",
+    "d3-selection": "^3.0.0",
+    "react-d3-tree": "^3.6.6",
+    "react-scripts": "^5.0.1"
+  }
+}
